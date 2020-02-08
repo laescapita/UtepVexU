@@ -18,6 +18,8 @@
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
+#include "autoFunctions.h"
+#include "userFunctions.h"
 
 using namespace vex;
 
@@ -45,15 +47,10 @@ void auton ( void )
   Brain.Screen.print("Autonmous is-a-go");
 
   //Sets Speed of every motor 
-  FLeftMotor.setVelocity(100, vex::velocityUnits::pct);
-  BLeftMotor.setVelocity(100, vex::velocityUnits::pct);
-  FRightMotor.setVelocity(100, vex::velocityUnits::pct);
-  BRightMotor.setVelocity(100, vex::velocityUnits::pct);
+  setDriveSpeed();
 
-  FLeftMotor.spin(forward);
-  BLeftMotor.spin(forward);
-  FRightMotor.spin(forward);
-  BRightMotor.spin(forward);
+  //Move Forward
+  moveForward(5, rev);
 
   Brain.Screen.newLine();
   Brain.Screen.print("Autonmous has ended");
@@ -74,11 +71,8 @@ void userControl( void )
   while(1)
   {
     //Actual Joystick Drive
-    FRightMotor.spin(vex::directionType::fwd, (Ax3Pos - Ax1Pos - Ax4Pos), vex::velocityUnits::pct);
-    FLeftMotor.spin(vex::directionType::fwd, (Ax3Pos + Ax1Pos + Ax4Pos), vex::velocityUnits::pct);
-    BRightMotor.spin(vex::directionType::fwd, (Ax3Pos - Ax1Pos + Ax4Pos), vex::velocityUnits::pct);
-    BLeftMotor.spin(vex::directionType::fwd, (Ax3Pos + Ax1Pos - Ax4Pos), vex::velocityUnits::pct);
-
+    joyStickDrive(Ax1Pos, Ax3Pos, Ax4Pos);
+    
   }
 
  vex::task::sleep(20);
