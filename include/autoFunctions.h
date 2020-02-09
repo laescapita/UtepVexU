@@ -11,8 +11,32 @@ void setDriveSpeed()
 
 void moveForward(double rotations, rotationUnits revs)
 {
-  FLeftMotor.spinFor(rotations, revs);
-  BLeftMotor.spinFor(rotations, revs);
-  FRightMotor.spinFor(rotations, revs);
-  BRightMotor.spinFor(rotations, revs);
+  FLeftMotor.spinFor(vex::directionType::fwd, rotations, revs);
+  BLeftMotor.spinFor(vex::directionType::fwd, rotations, revs);
+  FRightMotor.spinFor(vex::directionType::fwd, rotations, revs);
+  BRightMotor.spinFor(vex::directionType::fwd, rotations, revs);
+}
+
+void moveBack(double rotations, rotationUnits revs)
+{
+  FLeftMotor.spinFor(vex::directionType::rev, rotations, revs);
+  BLeftMotor.spinFor(vex::directionType::rev, rotations, revs);
+  FRightMotor.spinFor(vex::directionType::rev, rotations, revs);
+  BRightMotor.spinFor(vex::directionType::rev, rotations, revs);
+}
+
+void turnLeft(double rotations, rotationUnits revs)
+{
+  FLeftMotor.spinFor(vex::directionType::rev, rotations, revs);
+  BLeftMotor.spinFor(vex::directionType::rev, rotations, revs);
+  FRightMotor.spinFor(vex::directionType::fwd, rotations, revs);
+  BRightMotor.spinFor(vex::directionType::fwd, rotations, revs);
+}
+
+void turnRight(double rotations, rotationUnits revs)
+{
+  FLeftMotor.spinFor(vex::directionType::fwd, rotations, revs);
+  BLeftMotor.spinFor(vex::directionType::fwd, rotations, revs);
+  FRightMotor.spinFor(vex::directionType::rev, rotations, revs);
+  BRightMotor.spinFor(vex::directionType::rev, rotations, revs);
 }

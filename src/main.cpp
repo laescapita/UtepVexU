@@ -52,6 +52,9 @@ void auton ( void )
   //Move Forward
   moveForward(5, rev);
 
+  //Turn Right
+  turnRight(2, rev);
+
   Brain.Screen.newLine();
   Brain.Screen.print("Autonmous has ended");
 }
