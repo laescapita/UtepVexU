@@ -32,6 +32,15 @@ vex::motor FLeftMotor = vex::motor( vex::PORT1 );
 vex::motor BLeftMotor = vex::motor( vex::PORT2 );
 vex::motor FRightMotor = vex::motor( vex::PORT3 );
 vex::motor BRightMotor = vex::motor( vex::PORT4 );
+vex::motor RAngle = vex::motor( vex::PORT5 );
+vex::motor LAngle = vex::motor( vex::PORT6 );
+vex::motor RArm = vex::motor( vex::PORT7 );
+vex::motor LArm = vex::motor( vex::PORT8 );
+vex::motor LFrontConveyor = vex::motor( vex::PORT9 );
+vex::motor LBackConveyor = vex::motor( vex::PORT10 );
+vex::motor RFrontConveyor = vex::motor( vex::PORT11 );
+vex::motor RBackConveyor = vex::motor( vex::PORT12 );
+
 
 vex::controller Controller1 = vex::controller();
 
@@ -55,6 +64,9 @@ void auton ( void )
   //Turn Right
   turnRight(2, rev);
 
+  //Move Shaft
+  moveShaftUp(30, deg);
+
   Brain.Screen.newLine();
   Brain.Screen.print("Autonmous has ended");
 }
@@ -75,6 +87,26 @@ void userControl( void )
   {
     //Actual Joystick Drive
     joyStickDrive(Ax1Pos, Ax3Pos, Ax4Pos);
+
+    if(Controller1.ButtonY.pressing())
+    {
+       moveShaftDown();
+    }
+
+    if(Controller1.ButtonX.pressing())
+    {
+       moveShaftUp();
+    }
+
+    if(Controller1.ButtonR1.pressing())
+    {
+      moveArmDown();
+    }
+
+    if(Controller1.ButtonR2.pressing())
+    {
+      moveArmUp();
+    }
     
   }
 

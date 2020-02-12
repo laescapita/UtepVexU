@@ -40,3 +40,27 @@ void turnRight(double rotations, rotationUnits revs)
   FRightMotor.spinFor(vex::directionType::rev, rotations, revs);
   BRightMotor.spinFor(vex::directionType::rev, rotations, revs);
 }
+
+void moveShaftUp(double degrees, rotationUnits deg)
+{
+  LAngle.spinFor(vex::directionType::fwd, degrees, deg);
+  RAngle.spinFor(vex::directionType::fwd, degrees, deg);
+}
+
+void moveShaftDown(double degrees, rotationUnits deg)
+{
+  LAngle.spinFor(vex::directionType::rev, degrees, deg);
+  RAngle.spinFor(vex::directionType::rev, degrees, deg);
+}
+
+void moveArmUp(double degrees, rotationUnits deg)
+{
+  LArm.spinFor(vex::directionType::fwd, degrees, deg);
+  RArm.spinFor(vex::directionType::fwd, degrees, deg);
+}
+
+void moveArmDown(double degrees, rotationUnits deg)
+{
+  LArm.spinFor(vex::directionType::rev, degrees, deg);
+  RArm.spinFor(vex::directionType::rev, degrees, deg);
+}

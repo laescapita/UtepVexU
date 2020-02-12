@@ -12,6 +12,11 @@ motor FLeftMotor = motor(PORT1, ratio18_1, false);
 motor BLeftMotor = motor(PORT2, ratio18_1, true);
 motor FRightMotor = motor(PORT3, ratio18_1, true);
 motor BRightMotor = motor(PORT4, ratio18_1, true);
+motor RAngle = motor(PORT5, ratio18_1, false);
+motor LAngle = motor(PORT6, ratio18_1, true);
+motor LArm = motor(PORT7, ratio18_1, false);
+motor RArm = motor(PORT8, ratio18_1, true);
+
 controller Controller1 = controller(primary);
 
 // VEXcode generated functions

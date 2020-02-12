@@ -7,6 +7,11 @@ extern motor FLeftMotor;
 extern motor BLeftMotor;
 extern motor FRightMotor;
 extern motor BRightMotor;
+extern motor LAngle;
+extern motor RAngle;
+extern motor RArm;
+extern motor LArm;
+
 extern controller Controller1;
 
 /**
