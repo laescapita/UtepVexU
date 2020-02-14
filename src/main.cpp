@@ -36,8 +36,10 @@ void auton ( void )
 {
   Brain.Screen.print("Autonmous is-a-go");
 
-  //Sets Speed of every motor 
-  setDriveSpeed();
+  while(FRightMotor.position(vex::turns) > 1)
+  {
+    moveForward(100, rpm);
+  }
 
   
 
@@ -48,30 +50,35 @@ void auton ( void )
 //Sets the controls for all the motors
 void userControl( void )
 {
+  Brain.Screen.newLine();
   Brain.Screen.print("Mecanum Drive");
 
   //setDriveSpeed();
 
   //Positions
-  int Ax1Pos = Controller1.Axis1.position();
-  int Ax3Pos = Controller1.Axis3.position();
-  int Ax4Pos = Controller1.Axis4.position();
 
 
   //Infinite Loop
   while(1)
   {
+      int Ax1Pos = Controller1.Axis1.position();
+      int Ax3Pos = Controller1.Axis3.position();
+      int Ax4Pos = Controller1.Axis4.position();
+
     //Actual Joystick Drive
     joyStickDrive(Ax1Pos, Ax3Pos, Ax4Pos);
 
     if(Controller1.ButtonY.pressing())
     {
+       shaftUp();
+    }
+    else if(Controller1.ButtonX.pressing())
+    {
        shaftDown();
     }
-
-    if(Controller1.ButtonX.pressing())
+    else
     {
-       shaftUp();
+        stopShaft();
     }
 
     if(Controller1.ButtonR1.pressing())
@@ -79,11 +86,31 @@ void userControl( void )
       armDown();
     }
 
-    if(Controller1.ButtonR2.pressing())
+    else if(Controller1.ButtonR2.pressing())
     {
       armUp();
     }
+
+    else
+    {
+      stopArm();
+    }
     
+    if(Controller1.ButtonL2.pressing())
+    {
+      push();
+    }
+
+    else if(Controller1.ButtonL1.pressing())
+    {
+      pull();
+    }
+
+    else
+    {
+      stopConveyor();
+    }
+
   }
 
  vex::task::sleep(20);
@@ -94,6 +121,7 @@ void userControl( void )
 int main() 
 {
   Competition.autonomous( auton );
+  
   Competition.drivercontrol( userControl );
 
   preAuton();

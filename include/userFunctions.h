@@ -7,18 +7,36 @@ void joyStickDrive(int Ax1Pos, int Ax3Pos, int Ax4Pos)
     FLeftMotor.spin(vex::directionType::fwd, (Ax3Pos + Ax1Pos + Ax4Pos), vex::velocityUnits::pct);
     BRightMotor.spin(vex::directionType::fwd, (Ax3Pos - Ax1Pos + Ax4Pos), vex::velocityUnits::pct);
     BLeftMotor.spin(vex::directionType::fwd, (Ax3Pos + Ax1Pos - Ax4Pos), vex::velocityUnits::pct);
-}
-  
-void shaftUp()
+} 
+
+void stopShaft()
 {
-  LAngle.spinFor(vex::directionType::fwd, 30, deg);
-  RAngle.spinFor(vex::directionType::fwd, 30, deg);
+  LAngle.stop();
+  RAngle.stop();
 }
 
+void stopArm()
+{
+  LArm.stop();
+  RArm.stop();
+}
+
+void stopConveyor()
+{
+  RightConveyor.stop();
+  LeftConveyor.stop();
+}
+  
 void shaftDown()
 {
-  LAngle.spinFor(vex::directionType::rev, 30, deg);
-  RAngle.spinFor(vex::directionType::rev, 30, deg);
+  LAngle.spin(vex::directionType::fwd);
+  RAngle.spin(vex::directionType::fwd);
+}
+
+void shaftUp()
+{
+  LAngle.spin(vex::directionType::rev);
+  RAngle.spin(vex::directionType::rev);
 }
 
 void armUp()
@@ -35,16 +53,13 @@ void armDown()
 
 void push()
 {
-  RFrontConveyor.spin(vex::directionType::fwd);
-  LFrontConveyor.spin(vex::directionType::fwd);
-  RBackConveyor.spin(vex::directionType::fwd);
-  LBackConveyor.spin(vex::directionType::fwd);
+  RightConveyor.spin(vex::directionType::fwd);
+  LeftConveyor.spin(vex::directionType::fwd);
+
 }
 
 void pull()
 {
-  RFrontConveyor.spin(vex::directionType::rev);
-  LFrontConveyor.spin(vex::directionType::rev);
-  RBackConveyor.spin(vex::directionType::rev);
-  LBackConveyor.spin(vex::directionType::rev);
+  RightConveyor.spin(vex::directionType::rev);
+  LeftConveyor.spin(vex::directionType::rev);
 }
