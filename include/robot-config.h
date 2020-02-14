@@ -1,7 +1,7 @@
 using namespace vex;
 
 extern brain Brain;
-
+ 
 // VEXcode devices
 extern motor FLeftMotor;
 extern motor BLeftMotor;
@@ -9,8 +9,13 @@ extern motor FRightMotor;
 extern motor BRightMotor;
 extern motor LAngle;
 extern motor RAngle;
-extern motor RArm;
-extern motor LArm;
+extern motor RArm; 
+extern motor LArm; 
+extern motor LFrontConveyor;
+extern motor LBackConveyor;
+extern motor RFrontConveyor;
+extern motor RBackConveyor;
+
 
 extern controller Controller1;
 

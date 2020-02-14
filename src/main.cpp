@@ -23,26 +23,7 @@
 
 using namespace vex;
 
-//Globally Initialize Values
-vex::brain Brain;
-
 vex::competition Competition;
-
-vex::motor FLeftMotor = vex::motor( vex::PORT1 );
-vex::motor BLeftMotor = vex::motor( vex::PORT2 );
-vex::motor FRightMotor = vex::motor( vex::PORT3 );
-vex::motor BRightMotor = vex::motor( vex::PORT4 );
-vex::motor RAngle = vex::motor( vex::PORT5 );
-vex::motor LAngle = vex::motor( vex::PORT6 );
-vex::motor RArm = vex::motor( vex::PORT7 );
-vex::motor LArm = vex::motor( vex::PORT8 );
-vex::motor LFrontConveyor = vex::motor( vex::PORT9 );
-vex::motor LBackConveyor = vex::motor( vex::PORT10 );
-vex::motor RFrontConveyor = vex::motor( vex::PORT11 );
-vex::motor RBackConveyor = vex::motor( vex::PORT12 );
-
-
-vex::controller Controller1 = vex::controller();
 
 //This will be used to reset any values that have been used for either auton or user control
 void preAuton( void )
@@ -76,6 +57,8 @@ void userControl( void )
 {
   Brain.Screen.print("Mecanum Drive");
 
+  //setDriveSpeed();
+
   //Positions
   int Ax1Pos = Controller1.Axis1.position();
   int Ax3Pos = Controller1.Axis3.position();
@@ -90,22 +73,22 @@ void userControl( void )
 
     if(Controller1.ButtonY.pressing())
     {
-       moveShaftDown();
+       shaftDown();
     }
 
     if(Controller1.ButtonX.pressing())
     {
-       moveShaftUp();
+       shaftUp();
     }
 
     if(Controller1.ButtonR1.pressing())
     {
-      moveArmDown();
+      armDown();
     }
 
     if(Controller1.ButtonR2.pressing())
     {
-      moveArmUp();
+      armUp();
     }
     
   }
