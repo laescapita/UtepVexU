@@ -36,10 +36,7 @@ void auton ( void )
 {
   Brain.Screen.print("Autonmous is-a-go");
 
-  while(FRightMotor.position(vex::turns) > 1)
-  {
-    moveForward(100, rpm);
-  }
+  // moveForward(100, 5, )
 
   
 
