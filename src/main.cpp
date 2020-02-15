@@ -38,6 +38,7 @@ void auton ( void )
 
   // moveForward(100, 5, )
 
+  moveForward(100, 5, rpm);
   
 
   Brain.Screen.newLine();

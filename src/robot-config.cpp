@@ -16,8 +16,11 @@ motor RAngle = motor(PORT6, ratio18_1, true);
 motor LAngle = motor(PORT5, ratio18_1, false);
 motor LArm = motor(PORT4, ratio18_1, false);
 motor RArm = motor(PORT7, ratio18_1, true);
-motor LeftConveyor = motor( PORT15, ratio18_1, true );
-motor RightConveyor = motor( PORT17, ratio18_1, false );
+motor BLeftConveyor = motor( PORT15, ratio18_1, true );
+motor BRightConveyor = motor( PORT17, ratio18_1, false );
+motor FLeftConveyor = motor( PORT15, ratio18_1, true );
+motor FRightConveyor = motor( PORT15, ratio18_1, false );
+
 
 controller Controller1 = controller(primary);
 

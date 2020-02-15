@@ -11,7 +11,7 @@ void joyStickDrive(int Ax1Pos, int Ax3Pos, int Ax4Pos)
 
 void stopShaft()
 {
-  LAngle.stop();
+  LAngle.stop(); 
   RAngle.stop();
 }
 
@@ -23,8 +23,8 @@ void stopArm()
 
 void stopConveyor()
 {
-  RightConveyor.stop();
-  LeftConveyor.stop();
+  BRightConveyor.stop();
+  BLeftConveyor.stop();
 }
   
 void shaftDown()
@@ -53,13 +53,17 @@ void armDown()
 
 void push()
 {
-  RightConveyor.spin(vex::directionType::fwd);
-  LeftConveyor.spin(vex::directionType::fwd);
+  BRightConveyor.spin(vex::directionType::fwd);
+  BLeftConveyor.spin(vex::directionType::fwd);
+  FRightConveyor.spin(vex::directionType::fwd);
+  FLeftConveyor.spin(vex::directionType::fwd);
 
 }
 
 void pull()
 {
-  RightConveyor.spin(vex::directionType::rev);
-  LeftConveyor.spin(vex::directionType::rev);
+  BRightConveyor.spin(vex::directionType::rev);
+  BLeftConveyor.spin(vex::directionType::rev);
+  FRightConveyor.spin(vex::directionType::rev);
+  FLeftConveyor.spin(vex::directionType::rev);
 }

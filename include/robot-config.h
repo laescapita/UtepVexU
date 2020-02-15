@@ -5,14 +5,16 @@ extern brain Brain;
 // VEXcode devices
 extern motor FLeftMotor;
 extern motor BLeftMotor;
-extern motor FRightMotor;
+extern motor FRightMotor; 
 extern motor BRightMotor; 
 extern motor LAngle;
 extern motor RAngle;
 extern motor RArm; 
 extern motor LArm; 
-extern motor LeftConveyor;
-extern motor RightConveyor;
+extern motor BLeftConveyor;
+extern motor BRightConveyor;
+extern motor FLeftConveyor;
+extern motor FRightConveyor;
 
 
 extern controller Controller1;
