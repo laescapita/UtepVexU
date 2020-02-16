@@ -23,6 +23,8 @@ void stopArm()
 
 void stopConveyor()
 {
+  FRightConveyor.stop();
+  FLeftConveyor.stop();
   BRightConveyor.stop();
   BLeftConveyor.stop();
 }
