@@ -21,6 +21,7 @@ motor BRightConveyor = motor( PORT16, ratio18_1, false );
 motor FLeftConveyor = motor( PORT14, ratio18_1, true );
 motor FRightConveyor = motor( PORT17, ratio18_1, false );
 inertial Balance = inertial(PORT3);
+vision Color = vision(PORT2);
 
 //vision Vision1 = vision( PORT17, bright, )
 
