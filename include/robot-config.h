@@ -15,7 +15,7 @@ extern motor BLeftConveyor;
 extern motor BRightConveyor;
 extern motor FLeftConveyor;
 extern motor FRightConveyor;
-extern inertial Gyro;
+extern inertial Balance;
 
 extern controller Controller1;
 

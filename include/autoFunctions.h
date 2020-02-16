@@ -49,7 +49,7 @@ void shiftLeft(double velocity, double distance, rotationUnits rev)
 
 void turnLeft(double velocity, double distance, rotationUnits rev)
 {
-  while(FRightMotor.position(rev) <= distance)
+  while(Balance.rotation(degrees) <= distance)
   {
     FRightMotor.spin(vex::directionType::fwd);
     FLeftMotor.spin(vex::directionType::rev);
