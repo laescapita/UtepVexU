@@ -13,9 +13,10 @@ extern motor RArm;
 extern motor LArm; 
 extern motor BLeftConveyor;
 extern motor BRightConveyor;
-extern motor FLeftConveyor;
-extern motor FRightConveyor;
+// extern motor FLeftConveyor;
+// extern motor FRightConveyor;
 extern inertial Balance;
+extern vision Color;
 
 extern controller Controller1;
 

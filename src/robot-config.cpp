@@ -18,8 +18,8 @@ motor LArm = motor(PORT4, ratio18_1, false);
 motor RArm = motor(PORT7, ratio18_1, true);
 motor BLeftConveyor = motor( PORT15, ratio18_1, true );
 motor BRightConveyor = motor( PORT16, ratio18_1, false );
-motor FLeftConveyor = motor( PORT14, ratio18_1, true );
-motor FRightConveyor = motor( PORT17, ratio18_1, false );
+// motor FLeftConveyor = motor( PORT14, ratio18_1, true );
+// motor FRightConveyor = motor( PORT17, ratio18_1, false );
 inertial Balance = inertial(PORT3);
 vision Color = vision(PORT2);
 

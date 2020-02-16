@@ -23,8 +23,8 @@ void stopArm()
 
 void stopConveyor()
 {
-  FRightConveyor.stop();
-  FLeftConveyor.stop();
+  // FRightConveyor.stop();
+  // FLeftConveyor.stop();
   BRightConveyor.stop();
   BLeftConveyor.stop();
 }
@@ -57,8 +57,8 @@ void push()
 {
   BRightConveyor.spin(vex::directionType::fwd);
   BLeftConveyor.spin(vex::directionType::fwd);
-  FRightConveyor.spin(vex::directionType::fwd);
-  FLeftConveyor.spin(vex::directionType::fwd);
+  // FRightConveyor.spin(vex::directionType::fwd);
+  // FLeftConveyor.spin(vex::directionType::fwd);
 
 }
 
@@ -66,6 +66,6 @@ void pull()
 {
   BRightConveyor.spin(vex::directionType::rev);
   BLeftConveyor.spin(vex::directionType::rev);
-  FRightConveyor.spin(vex::directionType::rev);
-  FLeftConveyor.spin(vex::directionType::rev);
+  // FRightConveyor.spin(vex::directionType::rev);
+  // FLeftConveyor.spin(vex::directionType::rev);
 }

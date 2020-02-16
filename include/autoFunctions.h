@@ -80,16 +80,16 @@ void shaftDown(double velocity, double distance, rotationUnits rev)
 
 void intakePullInfinite()
 {
-  FRightConveyor.spin(vex::directionType::rev);
-  FLeftConveyor.spin(vex::directionType::rev);
+  // FRightConveyor.spin(vex::directionType::rev);
+  // FLeftConveyor.spin(vex::directionType::rev);
   BRightConveyor.spin(vex::directionType::rev);
   BLeftConveyor.spin(vex::directionType::rev); 
 }
 
 void intakePushInfinite()
 {
-  FRightConveyor.spin(vex::directionType::fwd);
-  FLeftConveyor.spin(vex::directionType::fwd);
+  // FRightConveyor.spin(vex::directionType::fwd);
+  // FLeftConveyor.spin(vex::directionType::fwd);
   BRightConveyor.spin(vex::directionType::fwd);
   BLeftConveyor.spin(vex::directionType::fwd); 
 }
