@@ -53,7 +53,7 @@ void auton ( void )
   Brain.Screen.newLine();
   Brain.Screen.print(FRightMotor.position(rev));
   
-  turnLeft(20, 20, rev);
+  turnLeft(90);
 
   // moveForward(100, 2.39, rev);
   // Brain.Screen.newLine();
