@@ -58,6 +58,17 @@ void turnLeft(double unit)
   }
 }
 
+void turnRight(double unit)
+{
+  while(Balance.heading(degrees) <= unit)
+  {
+    FRightMotor.spin(vex::directionType::fwd);
+    FLeftMotor.spin(vex::directionType::rev);
+    BRightMotor.spin(vex::directionType::fwd);
+    BLeftMotor.spin(vex::directionType::rev);
+  }
+}
+
 void shaftDown(double velocity, double distance, rotationUnits rev)
 {
   while(RAngle.position(rev) <= distance)

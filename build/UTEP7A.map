@@ -15,7 +15,7 @@ C:\Program Files (x86)\VEX Robotics\VEXcode V5 Text\sdk/vexv5\libv5rt.a(vex_moto
 C:\Program Files (x86)\VEX Robotics\VEXcode V5 Text\sdk/vexv5\libv5rt.a(vex_vision.cpp.obj)
                               build/src/robot-config.o (vex::vision::~vision())
 C:\Program Files (x86)\VEX Robotics\VEXcode V5 Text\sdk/vexv5\libv5rt.a(vex_imu.cpp.obj)
-                              build/src/main.o (vex::inertial::rotation(vex::rotationUnits))
+                              build/src/main.o (vex::inertial::heading(vex::rotationUnits))
 C:\Program Files (x86)\VEX Robotics\VEXcode V5 Text\sdk/vexv5\libv5rt.a(vex_controller.cpp.obj)
                               build/src/robot-config.o (vex::controller::~controller())
 C:\Program Files (x86)\VEX Robotics\VEXcode V5 Text\sdk/vexv5\libv5rt.a(vex_task.cpp.obj)
@@ -70,6 +70,10 @@ Discarded input sections
  .text._Z9shiftLeftddN3vex13rotationUnitsE
                 0x00000000       0xa8 build/src/main.o
  .ARM.exidx.text._Z9shiftLeftddN3vex13rotationUnitsE
+                0x00000000        0x8 build/src/main.o
+ .text._Z9turnRightd
+                0x00000000       0xbc build/src/main.o
+ .ARM.exidx.text._Z9turnRightd
                 0x00000000        0x8 build/src/main.o
  .text._Z9shaftDownddN3vex13rotationUnitsE
                 0x00000000       0x80 build/src/main.o
@@ -2371,25 +2375,24 @@ Linker script and memory map
  .text._Z10shiftRightddN3vex13rotationUnitsE
                 0x0380025c       0xb4 build/src/main.o
                 0x0380025c                shiftRight(double, double, vex::rotationUnits)
- .text._Z8turnLeftddN3vex13rotationUnitsE
-                0x03800310       0xb8 build/src/main.o
-                0x03800310                turnLeft(double, double, vex::rotationUnits)
+ .text._Z8turnLeftd
+                0x03800310       0xbc build/src/main.o
+                0x03800310                turnLeft(double)
  .text._Z18intakePullInfinitev
-                0x038003c8       0x4c build/src/main.o
-                0x038003c8                intakePullInfinite()
+                0x038003cc       0x4c build/src/main.o
+                0x038003cc                intakePullInfinite()
  .text._Z13joyStickDriveiii
-                0x03800414       0xbc build/src/main.o
-                0x03800414                joyStickDrive(int, int, int)
+                0x03800418       0xbc build/src/main.o
+                0x03800418                joyStickDrive(int, int, int)
  .text._Z12stopConveyorv
-                0x038004d0       0x3c build/src/main.o
-                0x038004d0                stopConveyor()
+                0x038004d4       0x3c build/src/main.o
+                0x038004d4                stopConveyor()
  .text._Z4pushv
-                0x0380050c       0x4c build/src/main.o
-                0x0380050c                push()
+                0x03800510       0x4c build/src/main.o
+                0x03800510                push()
  .text._Z4pullv
-                0x03800558       0x4c build/src/main.o
-                0x03800558                pull()
- *fill*         0x038005a4        0x4 
+                0x0380055c       0x4c build/src/main.o
+                0x0380055c                pull()
  .text._Z5autonv
                 0x038005a8      0x158 build/src/main.o
                 0x038005a8                auton()
@@ -3228,7 +3231,7 @@ Linker script and memory map
  .ARM.exidx.text._Z10shiftRightddN3vex13rotationUnitsE
                 0x03803aec        0x0 build/src/main.o
                                   0x8 (size before relaxing)
- .ARM.exidx.text._Z8turnLeftddN3vex13rotationUnitsE
+ .ARM.exidx.text._Z8turnLeftd
                 0x03803aec        0x0 build/src/main.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text._Z18intakePullInfinitev
