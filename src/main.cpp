@@ -53,39 +53,39 @@ void auton ( void )
   Brain.Screen.newLine();
   Brain.Screen.print(FRightMotor.position(rev));
 
-  moveForward(100, 2.39, rev);
+  // moveForward(100, 2.39, rev);
 
-  Brain.Screen.newLine();
-  Brain.Screen.print(FRightMotor.position(rev));
+  // Brain.Screen.newLine();
+  // Brain.Screen.print(FRightMotor.position(rev));
 
-  moveBack(100, 2.39, rev);
+  // moveBack(100, 2.39, rev);
 
-  Brain.Screen.newLine();
-  Brain.Screen.print(FRightMotor.position(rev));
+  // Brain.Screen.newLine();
+  // Brain.Screen.print(FRightMotor.position(rev));
 
-  moveForward(100, .08, rev);
+  // moveForward(100, .08, rev);
 
-  Brain.Screen.newLine();
-  Brain.Screen.print(FRightMotor.position(rev));
+  // Brain.Screen.newLine();
+  // Brain.Screen.print(FRightMotor.position(rev));
 
-  turnLeft(100, 2.23, rev);
+  // turnLeft(100, 2.23, rev);
 
-  Brain.Screen.newLine();
-  Brain.Screen.print(FRightMotor.position(rev));
+  // Brain.Screen.newLine();
+  // Brain.Screen.print(FRightMotor.position(rev));
 
-  moveForward(100, 1.91, rev);
+  // moveForward(100, 1.91, rev);
 
-  Brain.Screen.newLine();
-  Brain.Screen.print(FRightMotor.position(rev));
+  // Brain.Screen.newLine();
+  // Brain.Screen.print(FRightMotor.position(rev));
 
-  turnLeft(100, 1.11, rev);
+  // turnLeft(100, 1.11, rev);
 
-  Brain.Screen.newLine();
-  Brain.Screen.print(FRightMotor.position(rev));
+  // Brain.Screen.newLine();
+  // Brain.Screen.print(FRightMotor.position(rev));
 
-  stopConveyor();
+  // stopConveyor();
 
-  placeStack();
+  // placeStack();
 
   Brain.Screen.newLine();
   Brain.Screen.print("Autonmous has ended");

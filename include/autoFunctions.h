@@ -10,7 +10,7 @@ void moveForward(double velocity, double distance,  rotationUnits rev)
     BRightMotor.spin(vex::directionType::fwd);
     BLeftMotor.spin(vex::directionType::fwd);
   }
-  
+   
 } 
 
 void moveBack(double velocity, double distance, rotationUnits rev)

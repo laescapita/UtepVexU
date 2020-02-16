@@ -18,9 +18,10 @@ motor LArm = motor(PORT4, ratio18_1, false);
 motor RArm = motor(PORT7, ratio18_1, true);
 motor BLeftConveyor = motor( PORT15, ratio18_1, true );
 motor BRightConveyor = motor( PORT17, ratio18_1, false );
-motor FLeftConveyor = motor( PORT15, ratio18_1, true );
-motor FRightConveyor = motor( PORT15, ratio18_1, false );
+motor FLeftConveyor = motor( PORT16, ratio18_1, true );
+motor FRightConveyor = motor( PORT14, ratio18_1, false );
 
+//vision Vision1 = vision( PORT17, bright, )
 
 controller Controller1 = controller(primary);
 
