@@ -55,38 +55,38 @@ void auton ( void )
   
   turnLeft(90);
 
-  // moveForward(100, 2.39, rev);
-  // Brain.Screen.newLine();
-  // Brain.Screen.print(FRightMotor.position(rev));
+  moveForward(100, 2.39, rev);
+  Brain.Screen.newLine();
+  Brain.Screen.print(FRightMotor.position(rev));
 
-  // moveBack(100, 2.39, rev);
+  moveBack(100, 2.39, rev);
 
-  // Brain.Screen.newLine();
-  // Brain.Screen.print(FRightMotor.position(rev));
+  Brain.Screen.newLine();
+  Brain.Screen.print(FRightMotor.position(rev));
 
-  // moveForward(100, .08, rev);
+  moveForward(100, .08, rev);
 
-  // Brain.Screen.newLine();
-  // Brain.Screen.print(FRightMotor.position(rev));
+  Brain.Screen.newLine();
+  Brain.Screen.print(FRightMotor.position(rev));
 
-  // turnLeft(100, 2.23, rev);
+  turnLeft(100);
 
-  // Brain.Screen.newLine();
-  // Brain.Screen.print(FRightMotor.position(rev));
+  Brain.Screen.newLine();
+  Brain.Screen.print(FRightMotor.position(rev));
 
-  // moveForward(100, 1.91, rev);
+  moveForward(100, 1.91, rev);
 
-  // Brain.Screen.newLine();
-  // Brain.Screen.print(FRightMotor.position(rev));
+  Brain.Screen.newLine();
+  Brain.Screen.print(FRightMotor.position(rev));
 
-  // turnLeft(100, 1.11, rev);
+  turnLeft(100);
 
-  // Brain.Screen.newLine();
-  // Brain.Screen.print(FRightMotor.position(rev));
+  Brain.Screen.newLine();
+  Brain.Screen.print(FRightMotor.position(rev));
 
-  // stopConveyor();
+  stopConveyor();
 
-  // placeStack();
+  placeStack();
 
   Brain.Screen.newLine();
   Brain.Screen.print("Autonmous has ended");
@@ -112,6 +112,66 @@ void userControl( void )
 
     //Actual Joystick Drive
     joyStickDrive(Ax1Pos, Ax3Pos, Ax4Pos);
+
+    if(Controller1.ButtonRight.pressing())//Javi, if we don't have the game switch to change between game modes, use this.
+    {                                     //On driver, press right to execute it
+        Brain.Screen.print("Autonmous is-a-go");
+  
+        intakePullInfinite();
+
+       moveForward(100, 2.39, rev);
+
+       Brain.Screen.newLine();
+       Brain.Screen.print(FRightMotor.position(rev));
+
+       moveBack(100, 2.39, rev);
+
+       Brain.Screen.newLine();
+       Brain.Screen.print(FRightMotor.position(rev));
+
+       shiftRight(100, 2.39, rev);
+
+       Brain.Screen.newLine();
+       Brain.Screen.print(FRightMotor.position(rev));
+  
+       turnLeft(90);
+
+       moveForward(100, 2.39, rev);
+       Brain.Screen.newLine();
+       Brain.Screen.print(FRightMotor.position(rev));
+
+       moveBack(100, 2.39, rev);
+
+       Brain.Screen.newLine();
+       Brain.Screen.print(FRightMotor.position(rev));
+
+       moveForward(100, .08, rev);
+
+       Brain.Screen.newLine();
+       Brain.Screen.print(FRightMotor.position(rev));
+
+       turnLeft(100);
+
+       Brain.Screen.newLine();
+       Brain.Screen.print(FRightMotor.position(rev));
+
+       moveForward(100, 1.91, rev);
+
+       Brain.Screen.newLine();
+       Brain.Screen.print(FRightMotor.position(rev));
+
+       turnLeft(100);
+
+       Brain.Screen.newLine();
+       Brain.Screen.print(FRightMotor.position(rev));
+
+       stopConveyor();
+
+       placeStack();
+
+       Brain.Screen.newLine();
+       Brain.Screen.print("Autonmous has ended");
+    }
 
     if(Controller1.ButtonY.pressing())
     {

@@ -8,7 +8,7 @@ void moveForward(double velocity, double distance,  rotationUnits rev)
     FRightMotor.spin(vex::directionType::fwd);
     FLeftMotor.spin(vex::directionType::fwd);
     BRightMotor.spin(vex::directionType::fwd);
-    BLeftMotor.spin(vex::directionType::fwd);
+    BLeftMotor.spin(vex::directionType::fwd); 
   }
    
 } 
@@ -62,10 +62,10 @@ void turnRight(double unit)
 {
   while(Balance.heading(degrees) <= unit)
   {
-    FRightMotor.spin(vex::directionType::fwd);
-    FLeftMotor.spin(vex::directionType::rev);
-    BRightMotor.spin(vex::directionType::fwd);
-    BLeftMotor.spin(vex::directionType::rev);
+    FRightMotor.spin(vex::directionType::rev);
+    FLeftMotor.spin(vex::directionType::fwd);
+    BRightMotor.spin(vex::directionType::rev);
+    BLeftMotor.spin(vex::directionType::fwd);
   }
 }
 
