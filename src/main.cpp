@@ -115,9 +115,9 @@ void userControl( void )
 
     if(Controller1.ButtonRight.pressing())//Javi, if we don't have the game switch to change between game modes, use this.
     {                                     //On driver, press right to execute it
-        Brain.Screen.print("Autonmous is-a-go");
-  
-        intakePullInfinite();
+        Brain.Screen.print("Autonmous is-a-go");//BTW, Gyro Works well, as long as the robot itself moves; And I don't think there's
+                                                //time for the vision sensor
+        intakePullInfinite();        
 
        moveForward(100, 2.39, rev);
 
