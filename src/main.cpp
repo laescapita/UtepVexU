@@ -32,64 +32,74 @@ void preAuton( void )
 }
 
 //Autonomous method
-void auton ( void )
+void autonBlue ( void )
 {
-  Brain.Screen.print("Autonmous is-a-go");
+  Brain.Screen.print("Blue Autonmous is-a-go");
+
+  armGoUp(75, 1);
+
+  armGoDown(75, 1);
   
   intakePullInfinite();
 
-  moveForward(100, 2.39, rev);
+  moveForward(25, 1);
 
   Brain.Screen.newLine();
-  Brain.Screen.print(FRightMotor.position(rev));
+  Brain.Screen.print(Brain.timer(sec));
 
-  moveBack(100, 2.39, rev);
-
-  Brain.Screen.newLine();
-  Brain.Screen.print(FRightMotor.position(rev));
-
-  shiftRight(100, 2.39, rev);
+  moveBack(25, 1);
 
   Brain.Screen.newLine();
-  Brain.Screen.print(FRightMotor.position(rev));
-  
-  turnLeft(90);
+  Brain.Screen.print(Brain.timer(sec));
 
-  moveForward(100, 2.39, rev);
-  Brain.Screen.newLine();
-  Brain.Screen.print(FRightMotor.position(rev));
+  stopIntake();
 
-  moveBack(100, 2.39, rev);
+  moveForward(25, 1);
 
   Brain.Screen.newLine();
-  Brain.Screen.print(FRightMotor.position(rev));
+  Brain.Screen.print(Brain.timer(sec));
 
-  moveForward(100, .08, rev);
-
-  Brain.Screen.newLine();
-  Brain.Screen.print(FRightMotor.position(rev));
-
-  turnLeft(100);
+  turnLeft(30, 90);
 
   Brain.Screen.newLine();
-  Brain.Screen.print(FRightMotor.position(rev));
-
-  moveForward(100, 1.91, rev);
-
-  Brain.Screen.newLine();
-  Brain.Screen.print(FRightMotor.position(rev));
-
-  turnLeft(100);
-
-  Brain.Screen.newLine();
-  Brain.Screen.print(FRightMotor.position(rev));
-
-  stopConveyor();
+  Brain.Screen.print(Brain.timer(sec));
 
   placeStack();
+}
+
+void autonRed ( void )
+{
+  Brain.Screen.print("Red Autonmous is-a-go");
+
+  armGoUp(75, 1);
+
+  armGoDown(75, 1);
+  
+  intakePullInfinite();
+
+  moveForward(25, 1);
 
   Brain.Screen.newLine();
-  Brain.Screen.print("Autonmous has ended");
+  Brain.Screen.print(Brain.timer(sec));
+
+  moveBack(25, 1);
+
+  Brain.Screen.newLine();
+  Brain.Screen.print(Brain.timer(sec));
+
+  stopIntake();
+
+  moveForward(25, 1);
+
+  Brain.Screen.newLine();
+  Brain.Screen.print(Brain.timer(sec));
+
+  turnRight(30, 90);
+
+  Brain.Screen.newLine();
+  Brain.Screen.print(Brain.timer(sec));
+
+  placeStack();
 }
 
 //Sets the controls for all the motors
@@ -113,85 +123,32 @@ void userControl( void )
     //Actual Joystick Drive
     joyStickDrive(Ax1Pos, Ax3Pos, Ax4Pos);
 
-    if(Controller1.ButtonRight.pressing())//Javi, if we don't have the game switch to change between game modes, use this.
-    {                                     //On driver, press right to execute it
-        Brain.Screen.print("Autonmous is-a-go");//BTW, Gyro Works well, as long as the robot itself moves; And I don't think there's
-                                                //time for the vision sensor
-        intakePullInfinite();        
-
-       moveForward(100, 2.39, rev);
-
-       Brain.Screen.newLine();
-       Brain.Screen.print(FRightMotor.position(rev));
-
-       moveBack(100, 2.39, rev);
-
-       Brain.Screen.newLine();
-       Brain.Screen.print(FRightMotor.position(rev));
-
-       shiftRight(100, 2.39, rev);
-
-       Brain.Screen.newLine();
-       Brain.Screen.print(FRightMotor.position(rev));
-  
-       turnLeft(90);
-
-       moveForward(100, 2.39, rev);
-       Brain.Screen.newLine();
-       Brain.Screen.print(FRightMotor.position(rev));
-
-       moveBack(100, 2.39, rev);
-
-       Brain.Screen.newLine();
-       Brain.Screen.print(FRightMotor.position(rev));
-
-       moveForward(100, .08, rev);
-
-       Brain.Screen.newLine();
-       Brain.Screen.print(FRightMotor.position(rev));
-
-       turnLeft(100);
-
-       Brain.Screen.newLine();
-       Brain.Screen.print(FRightMotor.position(rev));
-
-       moveForward(100, 1.91, rev);
-
-       Brain.Screen.newLine();
-       Brain.Screen.print(FRightMotor.position(rev));
-
-       turnLeft(100);
-
-       Brain.Screen.newLine();
-       Brain.Screen.print(FRightMotor.position(rev));
-
-       stopConveyor();
-
-       placeStack();
-
-       Brain.Screen.newLine();
-       Brain.Screen.print("Autonmous has ended");
+    if(Controller1.ButtonRight.pressing())
+    {
+      autonBlue();
     }
 
-    if(Controller1.ButtonY.pressing())
+    if(Controller1.ButtonDown.pressing())
     {
        shaftUp();
     }
-    else if(Controller1.ButtonX.pressing())
+
+    else if(Controller1.ButtonUp.pressing())
     {
        shaftDown();
     }
+
     else
     {
         stopShaft();
     }
 
-    if(Controller1.ButtonR1.pressing())
+    if(Controller1.ButtonR2.pressing())
     {
       armDown();
     }
 
-    else if(Controller1.ButtonR2.pressing())
+    else if(Controller1.ButtonR1.pressing())
     {
       armUp();
     }
@@ -213,7 +170,7 @@ void userControl( void )
 
     else
     {
-      stopConveyor();
+      stopIntake();
     }
 
   }
@@ -225,7 +182,7 @@ void userControl( void )
 //Where stuff goes down 
 int main() 
 {
-  Competition.autonomous( auton );
+  Competition.autonomous( autonBlue );
   
   Competition.drivercontrol( userControl );
 

@@ -21,7 +21,7 @@ void stopArm()
   RArm.stop();
 }
 
-void stopConveyor()
+void stopIntake()
 {
   // FRightConveyor.stop();
   // FLeftConveyor.stop();
