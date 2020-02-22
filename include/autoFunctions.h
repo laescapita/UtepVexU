@@ -1,7 +1,7 @@
 #include "vex.h"
 #include "robot-config.h"
  
-void moveForward(double velocity, double seconds)
+void moveForward(double velocity, double seconds) //These Two were the functions tested on
 {
   Brain.resetTimer();
   double startTime = Brain.timer(vex::timeUnits::sec);
@@ -13,9 +13,9 @@ void moveForward(double velocity, double seconds)
     BLeftMotor.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm); 
   }
    
-}  
+}   
 
-void moveForward(double velocity, double distance, rotationUnits rev)
+void moveForward(double velocity, double distance, rotationUnits rev) //Examples of single use mentality
 {
   FRightMotor.resetPosition();
   while(FRightMotor.position(rev) <= distance)
@@ -174,9 +174,12 @@ void intakePushInfinite()
 void placeStack()
 {
   moveForward(25, 1);
+  //moveForward(30, 3, rev);
   shaftDown(100, 2);
   moveForward(25, 1);
+  //moveForward(30, 3, rev);
   moveBack(25, 2);
+  //moveBack(30, 3, rev);
   
 }
 

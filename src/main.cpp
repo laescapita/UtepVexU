@@ -39,15 +39,19 @@ void autonBlue ( void )
   armGoUp(75, 1);
 
   armGoDown(75, 1);
-  
+         
   intakePullInfinite();
 
-  moveForward(25, 1);
+  moveForward(25, 1); //Time Based
+
+  //moveForward(30, 3, rev); Motor Sensor Based
 
   Brain.Screen.newLine();
   Brain.Screen.print(Brain.timer(sec));
 
   moveBack(25, 1);
+
+  //moveBack(30, 3, rev);
 
   Brain.Screen.newLine();
   Brain.Screen.print(Brain.timer(sec));
@@ -55,6 +59,8 @@ void autonBlue ( void )
   stopIntake();
 
   moveForward(25, 1);
+
+  //moveForward(30, 3, rev);
 
   Brain.Screen.newLine();
   Brain.Screen.print(Brain.timer(sec));
@@ -99,7 +105,7 @@ void autonRed ( void )
   Brain.Screen.newLine();
   Brain.Screen.print(Brain.timer(sec));
 
-  placeStack();
+  placeStack();//This is composed of other functions
 }
 
 //Sets the controls for all the motors

@@ -15,7 +15,7 @@ void stopShaft()
   RAngle.stop();
 }
 
-void stopArm()
+void stopArm() 
 {
   LArm.stop();
   RArm.stop();
