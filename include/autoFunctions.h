@@ -12,6 +12,11 @@ void moveForward(double velocity, double seconds) //These Two were the functions
     BRightMotor.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm);
     BLeftMotor.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm); 
   }
+
+    FRightMotor.stop();
+    FLeftMotor.stop();
+    BRightMotor.stop();
+    BLeftMotor.stop();
    
 }   
 
@@ -25,6 +30,11 @@ void moveForward(double velocity, double distance, rotationUnits rev) //Examples
     BRightMotor.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm);
     BLeftMotor.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm); 
   }
+
+    FRightMotor.stop();
+    FLeftMotor.stop();
+    BRightMotor.stop();
+    BLeftMotor.stop();
    
 }  
 
@@ -39,6 +49,11 @@ void moveBack(double velocity, double seconds)
     BRightMotor.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm);
     BLeftMotor.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm); 
   }
+
+    FRightMotor.stop();
+    FLeftMotor.stop();
+    BRightMotor.stop();
+    BLeftMotor.stop();
    
 }  
 
@@ -52,7 +67,10 @@ void moveBack(double velocity, double distance, rotationUnits rev)
     BRightMotor.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm);
     BLeftMotor.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm); 
   }
-   
+    FRightMotor.stop();
+    FLeftMotor.stop();
+    BRightMotor.stop();
+    BLeftMotor.stop();
 }  
 
 void shiftRight(double velocity, double seconds)
@@ -66,7 +84,10 @@ void shiftRight(double velocity, double seconds)
     BRightMotor.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm);
     BLeftMotor.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm); 
   }
-   
+    FRightMotor.stop();
+    FLeftMotor.stop();
+    BRightMotor.stop();
+    BLeftMotor.stop();
 }  
 
 void shiftRight(double velocity, double distance, rotationUnits rev)
@@ -79,6 +100,11 @@ void shiftRight(double velocity, double distance, rotationUnits rev)
     BRightMotor.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm);
     BLeftMotor.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm); 
   }
+
+    FRightMotor.stop();
+    FLeftMotor.stop();
+    BRightMotor.stop();
+    BLeftMotor.stop();
    
 }  
 
@@ -93,6 +119,11 @@ void shiftLeft(double velocity, double seconds)
     BRightMotor.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm);
     BLeftMotor.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm); 
   }
+
+    FRightMotor.stop();
+    FLeftMotor.stop();
+    BRightMotor.stop();
+    BLeftMotor.stop();
    
 }  
 
@@ -106,53 +137,60 @@ void shiftLeft(double velocity, double distance, rotationUnits rev)
     BRightMotor.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm);
     BLeftMotor.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm); 
   }
+
+    FRightMotor.stop();
+    FLeftMotor.stop();
+    BRightMotor.stop();
+    BLeftMotor.stop();
    
 }  
 
-void turnLeft(double velocity, double unit)
+void turnLeft(double velocity, double distance, rotationUnits rev)
 {
-  Balance.resetHeading();
-  while(Balance.heading(degrees) <= unit)
+  FRightMotor.resetPosition();
+  while(FRightMotor.position(rev) <= distance)
   {
     FRightMotor.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm);
     FLeftMotor.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm);
     BRightMotor.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm);
-    BLeftMotor.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm);
+    BLeftMotor.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm); 
   }
 }
 
-void turnRight(double velocity, double unit)
+void turnRight(double velocity, double distance, rotationUnits rev)
 {
-  Balance.resetHeading();
-  while(Balance.heading(degrees) <= unit)
+  FRightMotor.resetPosition();
+  while(FRightMotor.position(rev) >= -distance)
   {
     FRightMotor.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm);
     FLeftMotor.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm);
     BRightMotor.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm);
-    BLeftMotor.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm);
+    BLeftMotor.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm); 
   }
 }
 
-void shaftDown(double velocity, double seconds)
+void shaftDown(double velocity, double distance, rotationUnits rev)
 {
-  Brain.resetTimer();
-  double startTime = Brain.timer(vex::timeUnits::sec);
-  while(startTime <= seconds)
+  RAngle.resetPosition();
+  while(RArm.position(rev) <= distance)
   {
-    RAngle.spin(vex::directionType::fwd);
-    LAngle.spin(vex::directionType::fwd);
+    RAngle.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm);
+    LAngle.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm);
   }
+  RAngle.stop();
+  LAngle.stop();
 }
 
-void shaftUp(double velocity, double seconds)
+void shaftUp(double velocity, double distance, rotationUnits rev)
 {
-  Brain.resetTimer();
-  double startTime = Brain.timer(vex::timeUnits::sec);
-  while(startTime <= seconds)
+  RAngle.resetPosition();
+  while(RArm.position(rev) >= -distance)
   {
-    RAngle.spin(vex::directionType::rev);
-    LAngle.spin(vex::directionType::rev);
+    RAngle.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm);
+    LAngle.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm);
   }
+  RAngle.stop();
+  LAngle.stop();
 }
 
 void intakePullInfinite()
@@ -173,36 +211,38 @@ void intakePushInfinite()
 
 void placeStack()
 {
-  moveForward(25, 1);
+  moveForward(25, .6, rev);
   //moveForward(30, 3, rev);
-  shaftDown(100, 2);
-  moveForward(25, 1);
+  shaftDown(80, .273, rev);
+  //moveForward(25, 1);
   //moveForward(30, 3, rev);
-  moveBack(25, 2);
-  //moveBack(30, 3, rev);
+ // moveBack(25, 2);
+  moveBack(30, 1, rev);
   
 }
 
-void armGoUp(double velocity, double seconds)
+void armGoUp(double velocity, double distance, rotationUnits rev)
 {
-  Brain.resetTimer();
-  double startTime = Brain.timer(vex::timeUnits::sec);
-  while(startTime <= seconds)
+  RArm.resetPosition();
+  while(RArm.position(rev) <= distance)
   {
-    LArm.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm);
     RArm.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm);
+    LArm.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm);
   }
+  RArm.stop();
+  LArm.stop();
 }
 
-void armGoDown(double velocity, double seconds)
+void armGoDown(double velocity, double distance, rotationUnits rev)
 {
-  Brain.resetTimer();
-  double startTime = Brain.timer(vex::timeUnits::sec);
-  while(startTime <= seconds)
+  RArm.resetPosition();
+  while(RArm.position(rev) >= -distance)
   {
-    LArm.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm);
-    RArm.spin(vex::directionType::rev, velocity, vex::velocityUnits::rpm);
+    RArm.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm);
+    LArm.spin(vex::directionType::fwd, velocity, vex::velocityUnits::rpm);
   }
+  RArm.stop();
+  LArm.stop();
 }
 
 

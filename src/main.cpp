@@ -36,76 +36,50 @@ void autonBlue ( void )
 {
   Brain.Screen.print("Blue Autonmous is-a-go");
 
-  armGoUp(75, 1);
+  moveForward(40, .5, rev);
 
-  armGoDown(75, 1);
+  armGoUp(75, 2.6, rev);
+
+  //armGoDown(75, 2.8, rev);
+
+  wait(2, sec);
          
   intakePullInfinite();
 
-  moveForward(25, 1); //Time Based
+  moveForward(40, 2, rev); //Motor Sensor Based
 
-  //moveForward(30, 3, rev); Motor Sensor Based
-
-  Brain.Screen.newLine();
-  Brain.Screen.print(Brain.timer(sec));
-
-  moveBack(25, 1);
-
-  //moveBack(30, 3, rev);
-
-  Brain.Screen.newLine();
-  Brain.Screen.print(Brain.timer(sec));
+  moveBack(40, 1.8, rev);
 
   stopIntake();
-
-  moveForward(25, 1);
-
-  //moveForward(30, 3, rev);
-
-  Brain.Screen.newLine();
-  Brain.Screen.print(Brain.timer(sec));
-
-  turnLeft(30, 90);
-
-  Brain.Screen.newLine();
-  Brain.Screen.print(Brain.timer(sec));
+ 
+  turnLeft(30, 2.4, rev);
 
   placeStack();
 }
 
 void autonRed ( void )
 {
-  Brain.Screen.print("Red Autonmous is-a-go");
+  Brain.Screen.print("Blue Autonmous is-a-go");
 
-  armGoUp(75, 1);
+  moveForward(40, .5, rev);
 
-  armGoDown(75, 1);
-  
+  armGoUp(75, 2.6, rev);
+
+  //armGoDown(75, 2.8, rev);
+
+  wait(2, sec);
+         
   intakePullInfinite();
 
-  moveForward(25, 1);
+  moveForward(40, 2, rev); //Motor Sensor Based
 
-  Brain.Screen.newLine();
-  Brain.Screen.print(Brain.timer(sec));
-
-  moveBack(25, 1);
-
-  Brain.Screen.newLine();
-  Brain.Screen.print(Brain.timer(sec));
+  moveBack(40, 1.8, rev);
 
   stopIntake();
+ 
+  turnRight(30, 2.4, rev);
 
-  moveForward(25, 1);
-
-  Brain.Screen.newLine();
-  Brain.Screen.print(Brain.timer(sec));
-
-  turnRight(30, 90);
-
-  Brain.Screen.newLine();
-  Brain.Screen.print(Brain.timer(sec));
-
-  placeStack();//This is composed of other functions
+  placeStack();
 }
 
 //Sets the controls for all the motors
@@ -188,7 +162,7 @@ void userControl( void )
 //Where stuff goes down 
 int main() 
 {
-  Competition.autonomous( autonBlue );
+  Competition.autonomous( autonRed );
   
   Competition.drivercontrol( userControl );
 
