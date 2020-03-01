@@ -7,19 +7,8 @@
 /*                                                                            */
 /*----------------------------------------------------------------------------*/
 
-// ---- START VEXCODE CONFIGURED DEVICES ----
-// Robot Configuration:
-// [Name]               [Type]        [Port(s)]
-// FLeftMotor           motor         1               
-// BLeftMotor           motor         2               
-// FRightMotor          motor         3               
-// BRightMotor          motor         4               
-// Controller1          controller                    
-// ---- END VEXCODE CONFIGURED DEVICES ----
-
 #include "vex.h"
 #include "autoFunctions.h"
-#include "userFunctions.h"
 
 using namespace vex;
 
@@ -28,58 +17,20 @@ vex::competition Competition;
 //This will be used to reset any values that have been used for either auton or user control
 void preAuton( void )
 {
-  Brain.Screen.print("Pre-Autonmous");
+  Brain.Screen.newLine();
+  Brain.Screen.print("Pre-Autonmous is Running");
 }
 
 //Autonomous method
-void autonBlue ( void )
+void autonSkills ( void )
 {
-  Brain.Screen.print("Blue Autonmous is-a-go");
+  Brain.Screen.newLine();
+  Brain.Screen.print("Skills Autonomous");
 
-  moveForward(40, .5, rev);
+  testing1();
 
-  armGoUp(75, 2.6, rev);
-
-  //armGoDown(75, 2.8, rev);
-
-  wait(2, sec);
-         
-  intakePullInfinite();
-
-  moveForward(40, 2, rev); //Motor Sensor Based
-
-  moveBack(40, 1.8, rev);
-
-  stopIntake();
- 
-  turnLeft(30, 2.4, rev);
-
-  placeStack();
-}
-
-void autonRed ( void )
-{
-  Brain.Screen.print("Blue Autonmous is-a-go");
-
-  moveForward(40, .5, rev);
-
-  armGoUp(75, 2.6, rev);
-
-  //armGoDown(75, 2.8, rev);
-
-  wait(2, sec);
-         
-  intakePullInfinite();
-
-  moveForward(40, 2, rev); //Motor Sensor Based
-
-  moveBack(40, 1.8, rev);
-
-  stopIntake();
- 
-  turnRight(30, 2.4, rev);
-
-  placeStack();
+  Brain.Screen.newLine();
+  Brain.Screen.print("Skills Autonomous Ended");
 }
 
 //Sets the controls for all the motors
@@ -88,11 +39,6 @@ void userControl( void )
   Brain.Screen.newLine();
   Brain.Screen.print("Mecanum Drive");
 
-  //setDriveSpeed();
-
-  //Positions
-
-
   //Infinite Loop
   while(1)
   {
@@ -100,58 +46,8 @@ void userControl( void )
       int Ax3Pos = Controller1.Axis3.position();
       int Ax4Pos = Controller1.Axis4.position();
 
-    //Actual Joystick Drive
+    //Actual Joystick Drive and Buttons
     joyStickDrive(Ax1Pos, Ax3Pos, Ax4Pos);
-
-    if(Controller1.ButtonRight.pressing())
-    {
-      autonBlue();
-    }
-
-    if(Controller1.ButtonDown.pressing())
-    {
-       shaftUp();
-    }
-
-    else if(Controller1.ButtonUp.pressing())
-    {
-       shaftDown();
-    }
-
-    else
-    {
-        stopShaft();
-    }
-
-    if(Controller1.ButtonR2.pressing())
-    {
-      armDown();
-    }
-
-    else if(Controller1.ButtonR1.pressing())
-    {
-      armUp();
-    }
-
-    else
-    {
-      stopArm();
-    }
-    
-    if(Controller1.ButtonL2.pressing())
-    {
-      push();
-    }
-
-    else if(Controller1.ButtonL1.pressing())
-    {
-      pull();
-    }
-
-    else
-    {
-      stopIntake();
-    }
 
   }
 
@@ -162,11 +58,14 @@ void userControl( void )
 //Where stuff goes down 
 int main() 
 {
-  Competition.autonomous( autonRed );
+  Competition.autonomous( autonSkills );
   
   Competition.drivercontrol( userControl );
 
   preAuton();
+
+  Brain.Screen.newLine();
+  Brain.Screen.print("Match Ended");
 
   while(1)
   {
