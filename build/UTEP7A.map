@@ -67,6 +67,42 @@ __sbss_end          0x4               C:\Program Files (x86)\VEX Robotics\VEXcod
 Discarded input sections
 
  .text          0x00000000        0x0 build/src/main.o
+ .text._Z13stopAutoShaftv
+                0x00000000       0x24 build/src/main.o
+ .ARM.exidx.text._Z13stopAutoShaftv
+                0x00000000        0x8 build/src/main.o
+ .text._Z11stopAutoArmv
+                0x00000000       0x24 build/src/main.o
+ .ARM.exidx.text._Z11stopAutoArmv
+                0x00000000        0x8 build/src/main.o
+ .text._Z14stopAutoIntakev
+                0x00000000       0x24 build/src/main.o
+ .ARM.exidx.text._Z14stopAutoIntakev
+                0x00000000        0x8 build/src/main.o
+ .text._Z9shiftLeftddN3vex13rotationUnitsE
+                0x00000000      0x134 build/src/main.o
+ .ARM.exidx.text._Z9shiftLeftddN3vex13rotationUnitsE
+                0x00000000        0x8 build/src/main.o
+ .text._Z9turnRightddN3vex13rotationUnitsE
+                0x00000000      0x108 build/src/main.o
+ .ARM.exidx.text._Z9turnRightddN3vex13rotationUnitsE
+                0x00000000        0x8 build/src/main.o
+ .text._Z7shaftUpddN3vex13rotationUnitsE
+                0x00000000       0xec build/src/main.o
+ .ARM.exidx.text._Z7shaftUpddN3vex13rotationUnitsE
+                0x00000000        0x8 build/src/main.o
+ .text._Z18intakePullInfinitev
+                0x00000000       0x60 build/src/main.o
+ .ARM.exidx.text._Z18intakePullInfinitev
+                0x00000000        0x8 build/src/main.o
+ .text._Z18intakePushInfinitev
+                0x00000000       0x60 build/src/main.o
+ .ARM.exidx.text._Z18intakePushInfinitev
+                0x00000000        0x8 build/src/main.o
+ .text._Z8testing2v
+                0x00000000      0x1b0 build/src/main.o
+ .ARM.exidx.text._Z8testing2v
+                0x00000000        0x8 build/src/main.o
  .text._Z9stopShaftv
                 0x00000000       0x24 build/src/main.o
  .ARM.exidx.text._Z9stopShaftv
@@ -102,30 +138,6 @@ Discarded input sections
  .text._Z4pullv
                 0x00000000       0x2c build/src/main.o
  .ARM.exidx.text._Z4pullv
-                0x00000000        0x8 build/src/main.o
- .text._Z9shiftLeftddN3vex13rotationUnitsE
-                0x00000000      0x134 build/src/main.o
- .ARM.exidx.text._Z9shiftLeftddN3vex13rotationUnitsE
-                0x00000000        0x8 build/src/main.o
- .text._Z9turnRightddN3vex13rotationUnitsE
-                0x00000000      0x108 build/src/main.o
- .ARM.exidx.text._Z9turnRightddN3vex13rotationUnitsE
-                0x00000000        0x8 build/src/main.o
- .text._Z7shaftUpddN3vex13rotationUnitsE
-                0x00000000       0xec build/src/main.o
- .ARM.exidx.text._Z7shaftUpddN3vex13rotationUnitsE
-                0x00000000        0x8 build/src/main.o
- .text._Z18intakePullInfinitev
-                0x00000000       0x60 build/src/main.o
- .ARM.exidx.text._Z18intakePullInfinitev
-                0x00000000        0x8 build/src/main.o
- .text._Z18intakePushInfinitev
-                0x00000000       0x60 build/src/main.o
- .ARM.exidx.text._Z18intakePushInfinitev
-                0x00000000        0x8 build/src/main.o
- .text._Z8testing2v
-                0x00000000      0x1b0 build/src/main.o
- .ARM.exidx.text._Z8testing2v
                 0x00000000        0x8 build/src/main.o
  .text._Z8preAutonv
                 0x00000000       0x30 build/src/main.o
@@ -2490,37 +2502,37 @@ Linker script and memory map
  *(.freertos_vectors)
  *(.text)
  *(.text.*)
- .text._Z13joyStickDriveiii
-                0x03800100      0x250 build/src/main.o
-                0x03800100                joyStickDrive(int, int, int)
  .text._Z11moveForwardddN3vex13rotationUnitsE
-                0x03800350      0x134 build/src/main.o
-                0x03800350                moveForward(double, double, vex::rotationUnits)
+                0x03800100      0x134 build/src/main.o
+                0x03800100                moveForward(double, double, vex::rotationUnits)
  .text._Z8moveBackddN3vex13rotationUnitsE
-                0x03800484      0x138 build/src/main.o
-                0x03800484                moveBack(double, double, vex::rotationUnits)
+                0x03800234      0x138 build/src/main.o
+                0x03800234                moveBack(double, double, vex::rotationUnits)
  .text._Z10shiftRightddN3vex13rotationUnitsE
-                0x038005bc      0x138 build/src/main.o
-                0x038005bc                shiftRight(double, double, vex::rotationUnits)
+                0x0380036c      0x138 build/src/main.o
+                0x0380036c                shiftRight(double, double, vex::rotationUnits)
  .text._Z8turnLeftddN3vex13rotationUnitsE
-                0x038006f4      0x104 build/src/main.o
-                0x038006f4                turnLeft(double, double, vex::rotationUnits)
+                0x038004a4      0x104 build/src/main.o
+                0x038004a4                turnLeft(double, double, vex::rotationUnits)
  .text._Z9shaftDownddN3vex13rotationUnitsE
-                0x038007f8       0xe8 build/src/main.o
-                0x038007f8                shaftDown(double, double, vex::rotationUnits)
+                0x038005a8       0xe8 build/src/main.o
+                0x038005a8                shaftDown(double, double, vex::rotationUnits)
  .text._Z10placeStackv
-                0x038008e0       0x78 build/src/main.o
-                0x038008e0                placeStack()
+                0x03800690       0x78 build/src/main.o
+                0x03800690                placeStack()
  .text._Z7armGoUpddN3vex13rotationUnitsE
-                0x03800958       0xe0 build/src/main.o
-                0x03800958                armGoUp(double, double, vex::rotationUnits)
+                0x03800708       0xe0 build/src/main.o
+                0x03800708                armGoUp(double, double, vex::rotationUnits)
  .text._Z9armGoDownddN3vex13rotationUnitsE
-                0x03800a38       0xe4 build/src/main.o
-                0x03800a38                armGoDown(double, double, vex::rotationUnits)
- *fill*         0x03800b1c        0x4 
+                0x038007e8       0xe4 build/src/main.o
+                0x038007e8                armGoDown(double, double, vex::rotationUnits)
+ *fill*         0x038008cc        0x4 
  .text._Z8testing1v
-                0x03800b20      0x1b0 build/src/main.o
-                0x03800b20                testing1()
+                0x038008d0      0x1b0 build/src/main.o
+                0x038008d0                testing1()
+ .text._Z13joyStickDriveiii
+                0x03800a80      0x250 build/src/main.o
+                0x03800a80                joyStickDrive(int, int, int)
  .text._Z11autonSkillsv
                 0x03800cd0       0x4c build/src/main.o
                 0x03800cd0                autonSkills()
@@ -3369,11 +3381,8 @@ Linker script and memory map
 .ARM.exidx      0x03804164        0x8
                 0x03804164                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx.text._Z13joyStickDriveiii
-                0x03804164        0x8 build/src/main.o
  .ARM.exidx.text._Z11moveForwardddN3vex13rotationUnitsE
-                0x0380416c        0x0 build/src/main.o
-                                  0x8 (size before relaxing)
+                0x03804164        0x8 build/src/main.o
  .ARM.exidx.text._Z8moveBackddN3vex13rotationUnitsE
                 0x0380416c        0x0 build/src/main.o
                                   0x8 (size before relaxing)
@@ -3396,6 +3405,9 @@ Linker script and memory map
                 0x0380416c        0x0 build/src/main.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text._Z8testing1v
+                0x0380416c        0x0 build/src/main.o
+                                  0x8 (size before relaxing)
+ .ARM.exidx.text._Z13joyStickDriveiii
                 0x0380416c        0x0 build/src/main.o
                                   0x8 (size before relaxing)
  .ARM.exidx.text._Z11autonSkillsv

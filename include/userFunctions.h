@@ -69,12 +69,12 @@ void joyStickDrive(int Ax1Pos, int Ax3Pos, int Ax4Pos)
     BRightMotor.spin(vex::directionType::fwd, (Ax3Pos - Ax1Pos + Ax4Pos)/1.5, vex::velocityUnits::pct);
     BLeftMotor.spin(vex::directionType::fwd, (Ax3Pos + Ax1Pos - Ax4Pos)/1.5, vex::velocityUnits::pct);
     
-    if(Controller1.ButtonDown.pressing())
+    if(Controller1.ButtonUp.pressing())
     {
        shaftUp();
     }
 
-    else if(Controller1.ButtonUp.pressing())
+    else if(Controller1.ButtonDown.pressing())
     {
        shaftDown();
     }

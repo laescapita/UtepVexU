@@ -1,6 +1,26 @@
 #include "vex.h"
 #include "robot-config.h"
-#include "userFunctions.h"
+
+void stopAutoShaft() 
+{
+  LAngle.stop(); 
+  RAngle.stop(); 
+}
+
+void stopAutoArm() 
+{
+  LArm.stop();
+  RArm.stop();
+}
+
+void stopAutoIntake()
+{
+  // FRightConveyor.stop();
+  // FLeftConveyor.stop();
+  BRightConveyor.stop();
+  BLeftConveyor.stop();
+}
+  
 
 void moveForward(double velocity, double distance, rotationUnits units) //Examples of single use mentality
 {
@@ -189,10 +209,10 @@ void testing1()
   {
     intakePullInfinite();
     moveForward(75, 4, vex::rotationUnits::rev);
-    stopIntake();
+    stopAutoIntake();
     moveBack(75, 4, vex::rotationUnits::rev);
     shiftRight(75, 1, vex::rotationUnits::rev);
-    count++;
+    count += 1;
   }
 
   turnLeft(75, 1, vex::rotationUnits::rev);
@@ -214,10 +234,10 @@ void testing2()
   {
     intakePullInfinite();
     moveForward(75, 4, vex::rotationUnits::rev);
-    stopIntake();
+    stopAutoIntake();
     moveBack(75, 4, vex::rotationUnits::rev);
     shiftLeft(75, 1, vex::rotationUnits::rev);
-    count++;
+    count += 1;
   }
 
   turnRight(75, 1, vex::rotationUnits::rev);

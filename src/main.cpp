@@ -9,6 +9,7 @@
 
 #include "vex.h"
 #include "autoFunctions.h"
+#include "userFunctions.h"
 
 using namespace vex;
 
@@ -22,7 +23,7 @@ void preAuton( void )
 }
 
 //Autonomous method
-void autonSkills ( void )
+void auton ( void )
 {
   Brain.Screen.newLine();
   Brain.Screen.print("Skills Autonomous");
@@ -58,7 +59,7 @@ void userControl( void )
 //Where stuff goes down 
 int main() 
 {
-  Competition.autonomous( autonSkills );
+  Competition.autonomous( auton );
   
   Competition.drivercontrol( userControl );
 
