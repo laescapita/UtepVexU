@@ -50,6 +50,10 @@ void userControl( void )
     //Actual Joystick Drive and Buttons
     joyStickDrive(Ax1Pos, Ax3Pos, Ax4Pos);
 
+    if(Controller1.ButtonLeft.pressing()){
+      testing1();
+    }
+
   }
 
  vex::task::sleep(20);

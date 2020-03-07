@@ -23,32 +23,32 @@ void stopIntake()
   
 void shaftDown()
 {
-  LAngle.spin(vex::directionType::fwd);
-  RAngle.spin(vex::directionType::fwd);
+  LAngle.spin(vex::directionType::fwd, 100, vex::velocityUnits::pct);
+  RAngle.spin(vex::directionType::fwd, 100, vex::velocityUnits::pct);
 }
 
 void shaftUp()
 {
-  LAngle.spin(vex::directionType::rev);
-  RAngle.spin(vex::directionType::rev);
+  LAngle.spin(vex::directionType::rev, 100, vex::velocityUnits::pct);
+  RAngle.spin(vex::directionType::rev, 100, vex::velocityUnits::pct);
 }
 
 void armUp()
 {
-  LArm.spin(vex::directionType::fwd);
-  RArm.spin(vex::directionType::fwd);
+  LArm.spin(vex::directionType::fwd, 100, vex::velocityUnits::pct);
+  RArm.spin(vex::directionType::fwd, 100, vex::velocityUnits::pct);
 }
 
 void armDown()
 {
-  LArm.spin(vex::directionType::rev);
-  RArm.spin(vex::directionType::rev);
+  LArm.spin(vex::directionType::rev, 100, vex::velocityUnits::pct);
+  RArm.spin(vex::directionType::rev, 100, vex::velocityUnits::pct);
 }
 
 void push()
 {
-  BRightConveyor.spin(vex::directionType::fwd);
-  BLeftConveyor.spin(vex::directionType::fwd);
+  BRightConveyor.spin(vex::directionType::fwd, 100, vex::velocityUnits::pct);
+  BLeftConveyor.spin(vex::directionType::fwd, 100, vex::velocityUnits::pct);
   // FRightConveyor.spin(vex::directionType::fwd);
   // FLeftConveyor.spin(vex::directionType::fwd);
 
@@ -56,32 +56,37 @@ void push()
 
 void pull()
 {
-  BRightConveyor.spin(vex::directionType::rev);
-  BLeftConveyor.spin(vex::directionType::rev);
+  BRightConveyor.spin(vex::directionType::rev, 100, vex::velocityUnits::pct);
+  BLeftConveyor.spin(vex::directionType::rev, 100, vex::velocityUnits::pct);
   // FRightConveyor.spin(vex::directionType::rev);
   // FLeftConveyor.spin(vex::directionType::rev);
 }
 
 void joyStickDrive(int Ax1Pos, int Ax3Pos, int Ax4Pos)
 { 
-    FRightMotor.spin(vex::directionType::fwd, (Ax3Pos - Ax1Pos - Ax4Pos)/1.5, vex::velocityUnits::pct);
-    FLeftMotor.spin(vex::directionType::fwd, (Ax3Pos + Ax1Pos + Ax4Pos)/1.5, vex::velocityUnits::pct);
-    BRightMotor.spin(vex::directionType::fwd, (Ax3Pos - Ax1Pos + Ax4Pos)/1.5, vex::velocityUnits::pct);
-    BLeftMotor.spin(vex::directionType::fwd, (Ax3Pos + Ax1Pos - Ax4Pos)/1.5, vex::velocityUnits::pct);
+    FRightMotor.spin(vex::directionType::fwd, (Ax3Pos - Ax1Pos - Ax4Pos)/1.17, vex::velocityUnits::pct);
+    FLeftMotor.spin(vex::directionType::fwd, (Ax3Pos + Ax1Pos + Ax4Pos)/1.17, vex::velocityUnits::pct);
+    BRightMotor.spin(vex::directionType::fwd, (Ax3Pos - Ax1Pos + Ax4Pos)/1.17, vex::velocityUnits::pct);
+    BLeftMotor.spin(vex::directionType::fwd, (Ax3Pos + Ax1Pos - Ax4Pos)/1.17, vex::velocityUnits::pct);
     
     if(Controller1.ButtonUp.pressing())
     {
        shaftUp();
+       Brain.Screen.newLine();
+       Brain.Screen.print(RAngle.position(vex::rotationUnits::rev));
     }
 
     else if(Controller1.ButtonDown.pressing())
     {
        shaftDown();
+       Brain.Screen.newLine();
+       Brain.Screen.print(RAngle.position(vex::rotationUnits::rev));
     }
 
     else
     {
         stopShaft();
+  
     }
 
     if(Controller1.ButtonR2.pressing())
