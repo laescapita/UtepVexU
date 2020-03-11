@@ -230,13 +230,13 @@ void swingRight(double velocity, double distance, rotationUnits units)
     BLeftMotor.stop();
 }
 
-void testing1()
+void blueAuto()
 {
   Brain.Screen.newLine();
   Brain.Screen.print("Testing First");
 
   armGoUp(100, 1.25, vex::rotationUnits::rev);
-  armGoDown(100, .75, vex::rotationUnits::rev);
+  armGoDown(100, 1, vex::rotationUnits::rev);
   int count = 0;
 
   while (count <= 1)
@@ -262,13 +262,13 @@ void testing1()
 
 }
 
-void testing2()
+void redAuto()
 {
   Brain.Screen.newLine();
   Brain.Screen.print("Testing Second");
 
   armGoUp(100, 1.25, vex::rotationUnits::rev);
-  armGoDown(100, .75, vex::rotationUnits::rev);
+  armGoDown(100, 1, vex::rotationUnits::rev);
   int count = 0;
 
   while (count <= 1)

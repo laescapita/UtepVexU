@@ -28,7 +28,7 @@ void auton ( void )
   Brain.Screen.newLine();
   Brain.Screen.print("Skills Autonomous");
 
-  testing1();
+  blueAuto();
 
   Brain.Screen.newLine();
   Brain.Screen.print("Skills Autonomous Ended");
@@ -51,7 +51,7 @@ void userControl( void )
     joyStickDrive(Ax1Pos, Ax3Pos, Ax4Pos);
 
     if(Controller1.ButtonLeft.pressing()){
-      testing1();
+      blueAuto();
     }
 
   }

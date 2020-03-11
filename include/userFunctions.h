@@ -64,6 +64,9 @@ void pull()
 
 void joyStickDrive(int Ax1Pos, int Ax3Pos, int Ax4Pos)
 { 
+    LArm.resetPosition();
+    RArm.resetPosition();
+
     FRightMotor.spin(vex::directionType::fwd, (Ax3Pos - Ax1Pos - Ax4Pos)/1.17, vex::velocityUnits::pct);
     FLeftMotor.spin(vex::directionType::fwd, (Ax3Pos + Ax1Pos + Ax4Pos)/1.17, vex::velocityUnits::pct);
     BRightMotor.spin(vex::directionType::fwd, (Ax3Pos - Ax1Pos + Ax4Pos)/1.17, vex::velocityUnits::pct);
@@ -86,23 +89,40 @@ void joyStickDrive(int Ax1Pos, int Ax3Pos, int Ax4Pos)
     else
     {
         stopShaft();
-  
     }
 
-    if(Controller1.ButtonR2.pressing())
+    if(RArm.position(vex::rotationUnits::deg) > 10)
     {
-      armDown();
+      while(RArm.position(vex::rotationUnits::deg) != 0)
+      {
+        RArm.spin(vex::directionType::rev, 25, vex::velocityUnits::pct);
+      }
+      RArm.stop();
     }
 
-    else if(Controller1.ButtonR1.pressing())
+    if(LArm.position(vex::rotationUnits::deg) > 10)
     {
-      armUp();
+      while(LArm.position(vex::rotationUnits::deg) != 0)
+      {
+        LArm.spin(vex::directionType::rev, 25, vex::velocityUnits::pct);
+      }
+      LArm.stop();
     }
 
-    else
-    {
-      stopArm();
-    }
+    // if(Controller1.ButtonR2.pressing())
+    // {
+    //   armDown();
+    // }
+
+    // else if(Controller1.ButtonR1.pressing())
+    // {
+    //   armUp();
+    // }
+
+    // else
+    // {
+    //   stopArm();
+    // }
     
     if(Controller1.ButtonL2.pressing())
     {
